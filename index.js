@@ -12,7 +12,9 @@ app.use(express.json());
 
 // Set up the API routes for the application
 app.use('/api', routes);
-
+app.use('/', (req, res)=>{
+    res.json({message: "hello from Backend"})
+})
 
 const PORT = 3004;
 app.listen(PORT, (err) => {
@@ -21,7 +23,7 @@ app.listen(PORT, (err) => {
     } else {
         console.log(`Server started at port: ${PORT}`);
     }
-});
+})
 
 
 
