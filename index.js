@@ -1,16 +1,10 @@
-// Load environment variables from the .env file
-require('dotenv').config();
-
-// Log the MongoDB URI for debugging purposes (optional, remove in production)
-console.log(process.env.MONGO_URI);
-
 const express = require('express');
 const app = express();
 const { databaseConnection } = require('./connection/db');
 const routes = require('./routes/booksRoutes');
 
-// Establish database connection using the URI from the environment variables
-databaseConnection(process.env.MONGO_URI);
+// Establish database connection
+databaseConnection('mongodb+srv://ashishkumar:Ashish123@books-directory-db.gcbc9.mongodb.net/?retryWrites=true&w=majority&appName=books-directory-db')
 
 // Middleware to parse URL-encoded data and JSON payloads from incoming requests
 app.use(express.urlencoded({ extended: true }));
@@ -20,7 +14,7 @@ app.use(express.json());
 app.use('/api', routes);
 
 
-const PORT = process.env.PORT || 3004;
+const PORT = 3004;
 app.listen(PORT, (err) => {
     if (err) {
         console.log(`Server failed to start: ${err}`);
