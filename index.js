@@ -4,7 +4,7 @@ const { databaseConnection } = require('./connection/db');
 const routes = require('./routes/booksRoutes');
 
 // Establish database connection
-databaseConnection('mongodb+srv://ashishkumar:Ashish123@books-directory-db.gcbc9.mongodb.net/?retryWrites=true&w=majority&appName=books-directory-db')
+// databaseConnection('mongodb+srv://ashishkumar:Ashish123@books-directory-db.gcbc9.mongodb.net/?retryWrites=true&w=majority&appName=books-directory-db')
 
 // Middleware to parse URL-encoded data and JSON payloads from incoming requests
 app.use(express.urlencoded({ extended: true }));
@@ -15,6 +15,7 @@ app.use('/api', routes);
 app.use('/', (req, res)=>{
     res.json({message: "hello from Backend"})
 })
+
 
 const PORT = 3004;
 app.listen(PORT, (err) => {
