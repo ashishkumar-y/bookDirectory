@@ -4,8 +4,9 @@ const { databaseConnection } = require('./connection/db')
 const routes = require('./routes/booksRoutes')
 
 //database connection---------------
-databaseConnection(`mongodb://localhost:27017/bookDirectoryData`)
+databaseConnection(`mongodb+srv://ashishkumar:Ashish123@books-directory-db.gcbc9.mongodb.net/?retryWrites=true&w=majority&appName=books-directory-db`)
 
+// mongodb://localhost:27017/bookDirectoryData
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
