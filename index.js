@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const app = express()
 const { databaseConnection } = require('./connection/db')
@@ -17,7 +18,7 @@ app.use('/', routes)
 
 
 //---------server setup-------------->
-const PORT = 3004
+const PORT = process.env.PORT || 3004;
 app.listen(PORT, (err) => {
     if (err) {
         console.log(`server failed: ${err}`);
